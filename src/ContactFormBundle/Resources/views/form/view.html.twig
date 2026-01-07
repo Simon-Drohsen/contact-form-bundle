@@ -1,0 +1,21 @@
+<div id="cf-modal-header">
+    <h2>
+        {{ pimcore_input("formTitle", {
+            "placeholder": "Form Title",
+            "width": 400
+        }) }}
+    </h2>
+</div>
+<div id="cf-modal-body">
+    <p>
+        {{ pimcore_textarea("formDescription", {
+            "nl2br": true,
+            "height": 300,
+            "width": 400,
+            "placeholder": "Form Description"
+        }) }}
+    </p>
+    {% if editmode is same as false %}
+        {% include '@ContactFormBundle/form/_form.html.twig' %}
+    {% endif %}
+</div>

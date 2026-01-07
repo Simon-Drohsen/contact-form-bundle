@@ -16,5 +16,4 @@ class ContactFormBundle extends AbstractPimcoreBundle implements PimcoreBundleAd
             '/bundles/contactform/js/pimcore/startup.js'
         ];
     }
-
 }

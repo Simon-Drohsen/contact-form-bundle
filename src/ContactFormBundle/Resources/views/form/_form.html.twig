@@ -1,0 +1,49 @@
+{% if form is not empty %}
+    {{ form_start(form) }}
+
+    {{ form_row(form._token) }}
+
+    <div class="uk-width-1-1">
+        {{ form_row(form.firstname, {
+            attr: {
+                'data-fv-not-empty': 'true',
+                'data-fv-not-empty___message': 'instride.contact-form.firstname.required'|trans
+            }
+        }) }}
+    </div>
+
+    <div class="uk-width-1-1">
+        {{ form_row(form.lastname, {
+            attr: {
+                'data-fv-not-empty': 'true',
+                'data-fv-not-empty___message': 'instride.contact-form.lastname.required'|trans
+            }
+        }) }}
+    </div>
+
+    <div class="uk-width-1-1">
+        {{ form_row(form.email, {
+            attr: {
+                'data-fv-email-address': 'true',
+                'data-fv-email-address___message': 'instride.contact-form.email.invalid'|trans,
+                'data-fv-not-empty': 'true',
+                'data-fv-not-empty___message': 'instride.contact-form.email.required'|trans,
+            }
+        }) }}
+    </div>
+
+    <div class="uk-width-1-1">
+        {{ form_row(form.message, {
+            attr: {
+                'data-fv-not-empty': 'true',
+                'data-fv-not-empty___message': 'instride.contact-form.message.required'|trans
+            }
+        }) }}
+    </div>
+
+    <div class="uk-width-1-1">
+        {{ form_row(form.submit) }}
+    </div>
+
+    {{ form_end(form, { render_rest: false }) }}
+{% endif %}

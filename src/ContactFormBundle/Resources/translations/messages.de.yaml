@@ -1,0 +1,19 @@
+instride:
+  contact-form:
+    firstname:
+      placeholder: 'Vorname eingeben'
+      invalid: 'Bitte einen gültigen Vornamen eingeben'
+      required: 'Der Vorname ist ein Pflichtfeld'
+    lastname:
+      placeholder: 'Nachname eingeben'
+      invalid: 'Bitte einen gültigen Nachnamen eingeben'
+      required: 'Der Nachname ist ein Pflichtfeld'
+    email:
+      placeholder: 'E-Mail eingeben'
+      invalid: 'Bitte eine gültige E-Mail eingeben'
+      required: 'Die E-Mail ist ein Pflichtfeld'
+    message:
+      placeholder: 'Nachricht eingeben'
+      invalid: 'Bitte eine gültige Nachricht eingeben'
+      required: 'Die Nachricht ist ein Pflichtfeld'
+    submit: Absenden
