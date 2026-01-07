@@ -1,3 +1,0 @@
-contact_form_homepage:
-    path:     /contact_form
-    defaults: { _controller: Instride\ContactFormBundle\Controller\DefaultController::indexAction }

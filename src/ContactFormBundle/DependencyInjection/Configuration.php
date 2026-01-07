@@ -1,6 +1,6 @@
 <?php
 
-namespace Instride\ContactFormBundle\DependencyInjection;
+namespace Instride\Bundle\ContactFormBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;

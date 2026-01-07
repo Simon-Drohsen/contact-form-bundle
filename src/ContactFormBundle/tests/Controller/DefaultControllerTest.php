@@ -1,6 +1,6 @@
 <?php
 
-namespace Instride\ContactFormBundle\Tests\Controller;
+namespace Instride\Bundle\ContactFormBundle\tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 

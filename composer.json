@@ -28,7 +28,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Instride\\Bundle\\ContactFormBundle\\": "ContactFormBundle/src/"
+      "Instride\\Bundle\\": "src/"
     }
   },
   "extra": {

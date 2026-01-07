@@ -1,6 +1,6 @@
 <?php
 
-namespace Instride\ContactFormBundle\Controller;
+namespace Instride\Bundle\ContactFormBundle\Controller;
 
 use Pimcore\Controller\FrontendController;
 use Symfony\Component\HttpFoundation\Request;

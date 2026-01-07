@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Instride\ContactFormBundle\Migrations;
+namespace Instride\Bundle\ContactFormBundle\Migrations;
 
 use Doctrine\DBAL\Schema\Schema;
 use Doctrine\Migrations\AbstractMigration;
