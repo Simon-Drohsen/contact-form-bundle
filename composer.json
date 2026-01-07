@@ -1,0 +1,44 @@
+{
+  "name": "instride/contact-form",
+  "type": "pimcore-bundle",
+  "license": "GPL-3.0-or-later",
+  "description": "contact form Bundle for Pimcore",
+  "keywords": [
+    "pimcore",
+    "pimcore-bundle"
+  ],
+  "homepage": "https://github.com/Simon-Drohsen/contact-form-bundle",
+  "minimum-stability": "dev",
+  "authors": [
+    {
+      "name": "instride AG",
+      "email": "connect@instride.ch",
+      "homepage": "https://instride.ch",
+      "role": "Digital Agency"
+    }
+  ],
+  "require": {
+    "php": ">=8.2",
+    "pimcore/pimcore": "^11"
+  },
+  "require-dev": {
+    "phpstan/phpstan": "^1.11",
+    "phpstan/phpstan-symfony": "^1.4",
+    "symplify/easy-coding-standard": "^12.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Instride\\Bundle\\ContactFormBundle\\": "ContactFormBundle/src/"
+    }
+  },
+  "extra": {
+    "pimcore": {
+      "bundles": [
+        "Instride\\Bundle\\ContactFormBundle\\ContactFormBundle"
+      ]
+    },
+    "branch-alias": {
+      "dev-main": "1.0-dev"
+    }
+  }
+}
