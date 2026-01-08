@@ -47,6 +47,8 @@ class ContactFormController extends FrontendController
                     // For example, you could add a flash message or log the error
                 }
 
+                $this->createAndSendMail($obj);
+
                 return $this->redirect($redirect ?: '/');
             }
         }

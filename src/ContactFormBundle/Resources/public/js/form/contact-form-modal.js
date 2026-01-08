@@ -34,11 +34,49 @@
 
     const html = await res.text();
     overlay._cfOpenWithHtml(html);
+    const inputs = overlay.querySelectorAll("input");
+    const isValidEmail = (value) =>
+      /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(value).trim());
+
+    inputs.forEach((input) => {
+      input.addEventListener("blur", (e) => {
+        const input = e.currentTarget;
+        const value = String(input.value).trim();
+
+        let message = "";
+        if (!value) {
+          message = "Please fill out this field.";
+        }
+
+        if (input.id === "contact_form_email") {
+          if (!isValidEmail(value)) {
+            message = "Please enter a valid email address.";
+          }
+        }
+
+        input.setCustomValidity(message);
+        input.classList.toggle("is-invalid", Boolean(message));
+
+        input.reportValidity();
+      });
+    });
   }
 
   document.addEventListener("click", (e) => {
-    const a = e.target.closest('a[href="/contact_form"]');
+    const a = e.target.closest('a[href*="contact_form"]');
     if (!a) return;
+
+    const href = a.getAttribute("href");
+    if (!href) return;
+
+    let pathname;
+    try {
+      pathname = new URL(href, window.location.origin).pathname;
+    } catch {
+      return;
+    }
+
+    if (!/^\/(?:[a-z]{2}\/)?contact_form\/?$/.test(pathname)) return;
 
     e.preventDefault();
     openContactFormModal();
