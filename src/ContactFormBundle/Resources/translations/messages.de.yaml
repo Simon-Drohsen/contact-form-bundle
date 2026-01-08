@@ -1,19 +1,28 @@
 instride:
   contact-form:
     firstname:
+      label: 'Vorname'
       placeholder: 'Vorname eingeben'
       invalid: 'Bitte einen gültigen Vornamen eingeben'
       required: 'Der Vorname ist ein Pflichtfeld'
     lastname:
+      label: 'Nachname'
       placeholder: 'Nachname eingeben'
       invalid: 'Bitte einen gültigen Nachnamen eingeben'
       required: 'Der Nachname ist ein Pflichtfeld'
     email:
+      label: 'E-Mail'
       placeholder: 'E-Mail eingeben'
       invalid: 'Bitte eine gültige E-Mail eingeben'
       required: 'Die E-Mail ist ein Pflichtfeld'
     message:
+      label: 'Nachricht'
       placeholder: 'Nachricht eingeben'
       invalid: 'Bitte eine gültige Nachricht eingeben'
       required: 'Die Nachricht ist ein Pflichtfeld'
     submit: Absenden
+  mail:
+    title: 'Neue Kontaktformular-Einsendung'
+    greeting: 'Guten Tag'
+    example-text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'
+

@@ -1,0 +1,38 @@
+{% extends '@ContactFormBundle/mail.html.twig' %}
+
+{% block content %}
+    <container>
+        <center>
+            <row>
+                <columns>
+                    <spacer size="16"></spacer>
+                    <h1>{{ 'instride.mail.title'|trans }}</h1>
+                </columns>
+            </row>
+        </center>
+    </container>
+    <container>
+        <row>
+            <columns>
+                <spacer size="16"></spacer>
+                <p>{{ 'instride.mail.greeting'|trans }} {{ params.admin }}</p>
+            </columns>
+        </row>
+    </container>
+    <container>
+        <row>
+            <columns>
+                <spacer size="16"></spacer>
+                <p>{{ 'instride.mail.example-text'|trans }}</p>
+            </columns>
+        </row>
+    </container>
+    <container>
+        <row>
+            <columns>
+                <spacer size="16"></spacer>
+                <p>{{ params.message }}</p>
+            </columns>
+        </row>
+    </container>
+{% endblock %}

@@ -26,7 +26,9 @@
 
   async function openContactFormModal() {
     const overlay = ensureModal();
-    const res = await fetch("/contact_form", {
+    const locale = window.location.pathname.split("/")[1];
+
+    const res = await fetch(`/${locale}/contact_form`, {
       headers: { "X-Requested-With": "XMLHttpRequest" },
     });
 
