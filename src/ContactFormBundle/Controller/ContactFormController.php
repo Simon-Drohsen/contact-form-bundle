@@ -4,10 +4,11 @@ namespace Instride\Bundle\ContactFormBundle\Controller;
 
 use Exception;
 use Instride\Bundle\ContactFormBundle\Form\Type\ContactFormType;
+use Pimcore\Bundle\ApplicationLoggerBundle\ApplicationLogger;
 use Pimcore\Config;
 use Pimcore\Controller\FrontendController;
 use Pimcore\Mail;
-use Pimcore\Model\DataObject\FormValue;
+use Pimcore\Model\DataObject;
 use Pimcore\Model\WebsiteSetting;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,10 +18,14 @@ use Symfony\Component\Routing\Annotation\Route;
 class ContactFormController extends FrontendController
 {
     private FormFactoryInterface $formFactory;
+    private ApplicationLogger $logger;
 
-    public function __construct(FormFactoryInterface $formFactory)
-    {
+    public function __construct(
+        FormFactoryInterface $formFactory,
+        ApplicationLogger $logger
+    ) {
         $this->formFactory = $formFactory;
+        $this->logger = $logger;
     }
 
     /**
@@ -38,18 +43,14 @@ class ContactFormController extends FrontendController
 
         if ($form->isSubmitted()) {
             if ($form->isValid()) {
-                $redirect = $this->document->getProperty('contact_form_redirect_site');
-
+                $customRedirect = $this->document->getProperty('contact_form_redirect_site');
+                $redirect = $this->redirect($customRedirect ?: '/');
                 $obj = $this->createFormObject($form->getData());
 
-                if (\is_null($obj)) {
-                    // Handle error saving form data
-                    // For example, you could add a flash message or log the error
-                }
+                if (!\is_null($obj)) $this->createAndSendMail($obj);
 
-                $this->createAndSendMail($obj);
+                return $redirect;
 
-                return $this->redirect($redirect ?: '/');
             }
         }
 
@@ -63,11 +64,11 @@ class ContactFormController extends FrontendController
     /**
      * @throws Exception
      */
-    private function createFormObject(array $formValues): ?FormValue
+    private function createFormObject(array $formValues): ?DataObject\FormValue
     {
         $parent = WebsiteSetting::getByName('contact_form_parent_folder');
 
-        if (!$parent) $parent = 1;
+        if (!$parent) $parent = DataObject::getById(1);
         else $parent = $parent->getData();
 
         $firstname = \trim($formValues['firstname']) ?? null;
@@ -75,7 +76,7 @@ class ContactFormController extends FrontendController
         $email = \trim($formValues['email']) ?? null;
         $message = \trim($formValues['message']) ?? null;
 
-        $obj = new FormValue();
+        $obj = new DataObject\FormValue();
         $obj->setFirstname($firstname);
         $obj->setLastname($lastname);
         $obj->setEmail($email);
@@ -89,8 +90,7 @@ class ContactFormController extends FrontendController
 
             return $obj;
         } catch (Exception $e) {
-            dd('Error saving contact form data: ' . $e->getMessage());
-            // $this->logger->error('Error saving contact form data: ' . $e->getMessage());
+            $this->logger->error('Error saving contact form data: ' . $e->getMessage());
         }
 
         return null;
@@ -99,7 +99,7 @@ class ContactFormController extends FrontendController
     /**
      * @throws Exception
      */
-    private function createAndSendMail(FormValue $obj): void
+    private function createAndSendMail(DataObject\FormValue $obj): void
     {
         $adminMailName = Config::getSystemConfiguration('email')['sender']['name'];
         $params = [
@@ -128,7 +128,7 @@ class ContactFormController extends FrontendController
         try {
             $mail->send();
         } catch (Exception $e) {
-            dd('Error sending user email: ' . $e->getMessage());
+            $this->logger->error('Error sending user email: ' . $e->getMessage());
         }
     }
 }

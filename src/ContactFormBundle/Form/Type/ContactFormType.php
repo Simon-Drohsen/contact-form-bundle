@@ -7,7 +7,7 @@
  * For the full copyright and license information, please view the LICENSE.md
  * file that is distributed with this source code.
  *
- * @copyright 2024 instride AG (https://instride.ch)
+ * @copyright 2026 instride AG (https://instride.ch)
  */
 
 namespace Instride\Bundle\ContactFormBundle\Form\Type;
@@ -32,8 +32,7 @@ final class ContactFormType extends AbstractType
                 'required' => true,
                 'attr' => [
                     'placeholder' => 'instride.contact-form.firstname.placeholder',
-                ],
-                'invalid_message' => 'instride.contact-form.firstname.invalid',
+                ]
             ])
             ->add('lastname', TextType::class, [
                 'label_format' => 'instride.contact-form.%name%.label',
@@ -41,7 +40,6 @@ final class ContactFormType extends AbstractType
                 'attr' => [
                     'placeholder' => 'instride.contact-form.lastname.placeholder',
                 ],
-                'invalid_message' => 'instride.contact-form.lastname.invalid',
             ])
             ->add('email', EmailType::class, [
                 'label_format' => 'instride.contact-form.%name%.label',
@@ -49,7 +47,6 @@ final class ContactFormType extends AbstractType
                 'attr' => [
                     'placeholder' => 'instride.contact-form.email.placeholder',
                 ],
-                'invalid_message' => 'instride.contact-form.email.invalid',
             ])
             ->add('message', TextareaType::class, [
                 'label_format' => 'instride.contact-form.%name%.label',
@@ -58,7 +55,6 @@ final class ContactFormType extends AbstractType
                     'rows' => 6,
                     'placeholder' => 'instride.contact-form.message.placeholder',
                 ],
-                'invalid_message' => 'instride.contact-form.message.invalid',
             ])
             ->add('submit', SubmitType::class, [
                 'label_format' => 'instride.contact-form.%name%',

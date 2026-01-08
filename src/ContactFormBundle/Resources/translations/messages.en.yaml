@@ -3,22 +3,18 @@ instride:
     firstname:
       label: 'first name'
       placeholder: 'Enter first name'
-      invalid: 'Please enter a valid first name'
       required: 'The first name is a required field'
     lastname:
       label: 'last name'
       placeholder: 'Enter last name'
-      invalid: 'Please enter a valid last name'
       required: 'The last name is a required field'
     email:
       label: 'e-mail'
       placeholder: 'Enter e-mail'
-      invalid: 'Please enter a valid e-mail'
       required: 'The e-mail is a required field'
     message:
       label: 'message'
       placeholder: 'Enter message'
-      invalid: 'Please enter a valid message'
       required: 'The message is a required field'
     submit: Submit
   mail:
