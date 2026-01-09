@@ -33,21 +33,13 @@ return [
 ];
 ```
 
-You also have to add the following configuration to your `config/packages/twig.yaml` file:
-
-```yaml
-twig:
-    paths:
-      '%kernel.project_dir%/vendor/instride/contact-form/src/ContactFormBundle/Resources/views': ContactFormBundle
-```
-
 Before using the contact form, make sure create the FormValue Data-Object class following the template:
 ![formvalue-dataobject-class.png](docs/images/formvalue-dataobject-class.png)
 
 Add the following line to the `<head>` of your base Twig template to include the necessary assets:
 
 ```twig
-{% include '@ContactFormBundle/_contact_form_assets.html.twig' %}
+{% include '@ContactForm/_contact_form_assets.html.twig' %}
 ```
 
 Finally, Run the following command to install the required assets:

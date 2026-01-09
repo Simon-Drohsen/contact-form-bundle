@@ -76,7 +76,7 @@ class ContactFormController extends FrontendController
             }
         }
 
-        $html = $this->renderView('@ContactFormBundle/form/view.html.twig', [
+        $html = $this->renderView('@ContactForm/form/view.html.twig', [
             'form' => $form->createView(),
         ]);
 
@@ -140,12 +140,12 @@ class ContactFormController extends FrontendController
             'mailTitle' => $mailTitle,
         ];
 
-        $userMail = $this->renderView('@ContactFormBundle/mail/user.html.twig', [
+        $userMail = $this->renderView('@ContactForm/mail/user.html.twig', [
             'params' => $params,
             'mailText' => $userMailText
         ]);
 
-        $adminMail = $this->renderView('@ContactFormBundle/mail/admin.html.twig', [
+        $adminMail = $this->renderView('@ContactForm/mail/admin.html.twig', [
             'params' => $params,
             'mailText' => $adminMailText,
             'objLink' => $objLink

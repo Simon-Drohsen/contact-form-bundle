@@ -17,7 +17,7 @@
     </p>
 
     {% if editmode is same as false %}
-        {{ include('@ContactFormBundle/form/_form.html.twig') }}
+        {{ include('@ContactForm/form/_form.html.twig') }}
     {% else %}
         <h2>
             {{ pimcore_input('mailTitle', {
