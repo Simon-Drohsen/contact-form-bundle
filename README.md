@@ -18,31 +18,20 @@ It allows you to easily add a contact form to any page on your site using a docu
 - Symfony/Twig-Bundle `^6.0`
 
 ## Installation
+You can install the Bundle via Composer:
 
-[//]: # (You can install the Bundle via Composer:)
+```bash
+composer require instride/contact-form
+```
 
-[//]: # ()
-[//]: # (```bash)
+Then, enable the Bundle in your `config/bundles.php` file:
 
-[//]: # (composer require instride/pimcore-contact-form-bundle)
-
-[//]: # (```)
-
-[//]: # ()
-[//]: # (Then, enable the Bundle in your `config/bundles.php` file:)
-
-[//]: # ()
-[//]: # (```php)
-
-[//]: # (return [)
-
-[//]: # (    // ...)
-
-[//]: # (    Instride\PimcoreContactFormBundle\InstridePimcoreContactFormBundle::class => ['all' => true],)
-
-[//]: # (];)
-
-[//]: # (```)
+```php
+return [
+    // ...
+    Instride\PimcoreContactFormBundle\InstridePimcoreContactFormBundle::class => ['all' => true],
+];
+```
 
 Before using the contact form, make sure create the FormValue Data-Object class following the template:
 ![formvalue-dataobject-class.png](docs/images/formvalue-dataobject-class.png)

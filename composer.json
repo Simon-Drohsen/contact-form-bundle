@@ -19,7 +19,9 @@
   ],
   "require": {
     "php": ">=8.2",
-    "pimcore/pimcore": "^11"
+    "pimcore/pimcore": "^11",
+    "symfony/form": "^7.0",
+    "symfony/twig": "^6.0"
   },
   "require-dev": {
     "phpstan/phpstan": "^1.11",
@@ -39,6 +41,13 @@
     },
     "branch-alias": {
       "dev-main": "1.0-dev"
+    }
+  },
+  "repositories": {
+    "packagist.org": false,
+    "private-packagist": {
+      "type": "composer",
+      "url": "https://repo.packagist.com/drohsen/"
     }
   }
 }
