@@ -1,3 +1,7 @@
-contact_form:
-    path:     /{_locale}/contact_form
+contact_form_site:
+    path: /contact_form
+    defaults: { _controller: Instride\Bundle\ContactFormBundle\Controller\ContactFormController::contactFormAction }
+
+contact_form_subsite:
+    path: /{prefix}/contact_form
     defaults: { _controller: Instride\Bundle\ContactFormBundle\Controller\ContactFormController::contactFormAction }

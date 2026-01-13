@@ -26,9 +26,11 @@
 
   async function openContactFormModal() {
     const overlay = ensureModal();
-    const locale = window.location.pathname.split("/")[1];
+    let locale = `/${window.location.pathname.split("/")[1]}`;
+    if (locale === "/") locale = "";
+    const url = `${window.location.origin}${locale}/contact_form`;
 
-    const res = await fetch(`/${locale}/contact_form`, {
+    const res = await fetch(url, {
       headers: { "X-Requested-With": "XMLHttpRequest" },
     });
 

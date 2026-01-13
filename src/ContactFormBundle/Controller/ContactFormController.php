@@ -29,15 +29,22 @@ class ContactFormController extends FrontendController
         $this->logger = $logger;
     }
 
-    #[Route('/{_locale}/contact_form', name: 'contact_form', methods: ['GET', 'POST'])]
-    public function contactFormAction(Request $request): Response
+    #[Route(['contact_form', '/{prefix}/contact_form'], name: 'contact_form', methods: ['GET', 'POST'])]
+    public function contactFormAction(Request $request, string $prefix = ''): Response
     {
-        $form = $this->formFactory->create(ContactFormType::class, null, [
-            'action' => $this->generateUrl('contact_form'),
-            'method' => 'POST',
-        ]);
+        if (empty($prefix)) {
+            $form = $this->formFactory->create(ContactFormType::class, null, [
+                'action' => $this->generateUrl('contact_form_site'),
+                'method' => 'POST',
+            ]);
+        } else {
+            $form = $this->formFactory->create(ContactFormType::class, null, [
+                'action' => $this->generateUrl('contact_form_subsite', ['prefix' => $prefix]),
+                'method' => 'POST',
+            ]);
+        }
 
-        $document = Document::getById($this->document->getId());
+        $document = $this->document;
         $mailTitle = '';
         $adminMailText = '';
         $userMailText = '';
@@ -64,7 +71,7 @@ class ContactFormController extends FrontendController
 
         if ($form->isSubmitted()) {
             if ($form->isValid()) {
-                $customRedirect = $this->document->getProperty('contact_form_redirect_site');
+                $customRedirect = $document->getProperty('contact_form_redirect_site');
                 $redirect = $this->redirect($customRedirect ?: '/');
                 $obj = $this->createFormObject($form->getData());
 
