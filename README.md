@@ -16,6 +16,7 @@ It allows you to easily add a contact form to any page on your site using a docu
 - Pimcore `^11.0`
 - Symfony/Form `^6.0`
 - Symfony/Twig-Bundle `^6.0`
+- Uikit `^3.0`
 
 ## Installation
 You can install the Bundle via Composer:
