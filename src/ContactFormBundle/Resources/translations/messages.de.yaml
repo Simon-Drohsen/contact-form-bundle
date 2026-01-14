@@ -16,7 +16,7 @@ instride:
       label: 'Nachricht'
       placeholder: 'Nachricht eingeben'
       required: 'Die Nachricht ist ein Pflichtfeld'
-    submit: Absenden
+    submit: 'Absenden'
   mail:
     greeting: 'Guten Tag'
     regards: 'Freundliche Grüsse'

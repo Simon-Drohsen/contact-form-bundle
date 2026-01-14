@@ -54,10 +54,13 @@ To use the contact form, create a new Document with the name `contact_form` in y
 ![contact_form-page.png](docs/images/contact_form-page.png)
 To configure a redirect page after a successful submission, set the `contact_form_redirect_site` property in the `Navigation & Properties` tab of the document.
 ![required-document-property.png](docs/images/required-document-property.png)
-In the "Website Settings" section of your Pimcore admin panel, set the following properties:
+In the `Website Settings` Tab of your Pimcore admin panel, set the following properties:
 
 - `contact_form_admin_mail`
 - `contact_form_parent_folder`
 ![required-website-settings.png](docs/images/required-website-settings.png)
 These properties will be used by the contact form to send submissions and configure the save location of the submission-objects.
 ![form-value-object.png](docs/images/form-value-object.png)
+
+The default German and English translations can be found in [here](docs/translation.md). You can override these translations by using the keys specified and change the value in the `Translations` Tab of the Pimcore admin panel.
+![edit-translations.png](docs/images/edit-translations.png)

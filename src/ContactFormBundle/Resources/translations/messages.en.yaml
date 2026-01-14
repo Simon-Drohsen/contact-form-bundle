@@ -16,7 +16,7 @@ instride:
       label: 'message'
       placeholder: 'Enter message'
       required: 'The message is a required field'
-    submit: Submit
+    submit: 'Submit'
   mail:
     greeting: 'Dear'
     regards: 'Best regards'
