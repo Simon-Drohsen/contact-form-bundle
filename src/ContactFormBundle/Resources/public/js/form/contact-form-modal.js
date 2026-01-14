@@ -24,15 +24,15 @@
     return overlay;
   }
 
-  async function openContactFormModal() {
+  async function openContactFormModal(pathname) {
     const overlay = ensureModal();
-    let locale = `/${window.location.pathname.split("/")[1]}`;
-    if (locale === "/") locale = "";
-    const url = `${window.location.origin}${locale}/contact_form`;
+    const url = `${window.location.origin}${pathname}`;
 
     const res = await fetch(url, {
       headers: { "X-Requested-With": "XMLHttpRequest" },
     });
+
+    console.log("Fetched contact form from URL:", url, res);
 
     const html = await res.text();
     overlay._cfOpenWithHtml(html);
@@ -78,9 +78,11 @@
       return;
     }
 
-    if (!/^\/(?:[a-z]{2}\/)?contact_form\/?$/.test(pathname)) return;
+    console.log("Detected contact form link click:", pathname);
+
+    if (!/^\/(?:.+\/)?contact_form\/?$/.test(pathname)) return;
 
     e.preventDefault();
-    openContactFormModal();
+    openContactFormModal(pathname);
   });
 })();

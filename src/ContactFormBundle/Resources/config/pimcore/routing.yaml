@@ -4,4 +4,6 @@ contact_form_site:
 
 contact_form_subsite:
     path: /{prefix}/contact_form
+    requirements:
+        prefix: '[^/]+(?:/[^/]+)*'
     defaults: { _controller: Instride\Bundle\ContactFormBundle\Controller\ContactFormController::contactFormAction }

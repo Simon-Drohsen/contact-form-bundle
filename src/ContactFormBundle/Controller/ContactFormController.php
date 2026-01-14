@@ -31,7 +31,12 @@ class ContactFormController extends FrontendController
     }
 
     #[Route('/contact_form', name: 'contact_form_site', methods: ['GET', 'POST'])]
-    #[Route('/{prefix}/contact_form', name: 'contact_form_subsite', requirements: ['prefix' => '[a-z0-9\-]+' ], methods: ['GET', 'POST'])]
+    #[Route(
+        '/{prefix}/contact_form',
+        name: 'contact_form_subsite',
+        requirements: ['prefix' => '[^/]+(?:/[^/]+)*'],
+        methods: ['GET', 'POST']
+    )]
     public function contactFormAction(Request $request, ?string $prefix = null): Response
     {
         $routeName = $prefix ? 'contact_form_subsite' : 'contact_form_site';
