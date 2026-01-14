@@ -22,9 +22,6 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 final class ContactFormType extends AbstractType
 {
-    /**
-     * {@inheritdoc}
-     */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
@@ -40,14 +37,14 @@ final class ContactFormType extends AbstractType
                 'required' => true,
                 'attr' => [
                     'placeholder' => 'instride.contact-form.lastname.placeholder',
-                ],
+                ]
             ])
             ->add('email', EmailType::class, [
                 'label_format' => 'instride.contact-form.%name%.label',
                 'required' => true,
                 'attr' => [
                     'placeholder' => 'instride.contact-form.email.placeholder',
-                ],
+                ]
             ])
             ->add('message', TextareaType::class, [
                 'label_format' => 'instride.contact-form.%name%.label',
@@ -55,13 +52,13 @@ final class ContactFormType extends AbstractType
                 'attr' => [
                     'rows' => 6,
                     'placeholder' => 'instride.contact-form.message.placeholder',
-                ],
+                ]
             ])
             ->add('submit', SubmitType::class, [
                 'label_format' => 'instride.contact-form.%name%',
                 'attr' => [
                     'class' => 'uk-button uk-button-primary',
-                ],
+                ]
             ]);
     }
 }

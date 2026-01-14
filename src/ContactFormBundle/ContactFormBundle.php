@@ -13,7 +13,7 @@ class ContactFormBundle extends AbstractPimcoreBundle implements PimcoreBundleAd
     public function getJsPaths(): array
     {
         return [
-            '/bundles/contactform/js/pimcore/startup.js'
+            '/bundles/contactform/js/pimcore/startup.js',
         ];
     }
 }
